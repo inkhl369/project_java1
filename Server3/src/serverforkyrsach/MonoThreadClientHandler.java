@@ -142,7 +142,7 @@ public class MonoThreadClientHandler implements Runnable{
     {
      ResultSet rs = null;
      String b ;
-     b="SELECT * FROM spisok INNER JOIN spisokpk on spisok.KodSpisok=spisokpk.KodSpisok ";
+     b="SELECT * FROM spisok INNER JOIN listcrossover on spisok.KodSpisok=listcrossover.KodSpisok ";
      //System.out.print(b);
      try
      {
@@ -157,7 +157,7 @@ public class MonoThreadClientHandler implements Runnable{
     {
      ResultSet rs = null;
      String b ;
-     b="SELECT * FROM spisok INNER JOIN spisoklaptod on spisok.KodSpisok=spisoklaptod.KodSpisok ";
+     b="SELECT * FROM spisok INNER JOIN listsedan on spisok.KodSpisok=listsedan.KodSpisok ";
      //System.out.print(b);
      try
      {
@@ -172,7 +172,7 @@ public class MonoThreadClientHandler implements Runnable{
     {
      ResultSet rs = null;
      String b ;
-     b="SELECT * FROM spisok INNER JOIN spisokmobilephone on spisok.KodSpisok=spisokmobilephone.KodSpisok";
+     b="SELECT * FROM spisok INNER JOIN listsuv on spisok.KodSpisok=listsuv.KodSpisok";
      //System.out.print(b);
      try
      {
@@ -187,7 +187,7 @@ public class MonoThreadClientHandler implements Runnable{
     {
      ResultSet rs = null;
      String b ;
-     b="SELECT * FROM spisok INNER JOIN spisokperipherii on spisok.KodSpisok=spisokperipherii.KodSpisok";
+     b="SELECT * FROM spisok INNER JOIN listhatchback on spisok.KodSpisok=listhatchback.KodSpisok";
      //System.out.print(b);
      try
      {
@@ -634,13 +634,13 @@ if (clientMessageRecieved.equals("добавлениетовара"))
         id=rs.getString("KodSpisok");
     }
             if (Name1.equals("кроссовер"))
-                 b="INSERT INTO spisokpk(KodSpisok,Computpower) values ("+id+","+other+")";   
+                 b="INSERT INTO listcrossover(KodSpisok,Computpower) values ("+id+","+other+")";
             if ( Name1.equals("внедорожник"))
-                 b="INSERT INTO spisokmobilephone(KodSpisok,Typecommunicate) values ("+id+",'"+other+"')";
+                 b="INSERT INTO listsuv(KodSpisok,Typecommunicate) values ("+id+",'"+other+"')";
             if (Name1.equals("седан"))
-                 b="INSERT INTO spisoklaptod(KodSpisok,TachPad) values ("+id+",'"+other+"')";
+                 b="INSERT INTO listsedan(KodSpisok,TachPad) values ("+id+",'"+other+"')";
             if (Name1.equals("хетчбэк"))
-                 b="INSERT INTO spisokperipherii(KodSpisok,Types) values ("+id+",'"+other+"')";            
+                 b="INSERT INTO listhatchback(KodSpisok,Types) values ("+id+",'"+other+"')";
             stmt.executeUpdate(b);
      }
      catch(SQLException e){
@@ -838,22 +838,22 @@ if (clientMessageRecieved.equals("обновитьданныетаблицы"))
      
    if (name.equals("кроссовер"))
    { 
-      b=" UPDATE spisokpk SET Computpower = '" +other+ "' WHERE KodSpisok ="+id ;
+      b=" UPDATE listcrossover SET Computpower = '" +other+ "' WHERE KodSpisok ="+id ;
       stmt.executeUpdate(b);
    }
    if (name.equals("седан"))
    {
-      b=" UPDATE spisoklaptod SET TachPad = '" +other+ "' WHERE KodSpisok ="+id ;
+      b=" UPDATE listsedan SET TachPad = '" +other+ "' WHERE KodSpisok ="+id ;
       stmt.executeUpdate(b);
    }       
    if (name.equals("внедорожник"))
    {
-      b=" UPDATE spisoklaptod SET Typecommunicate = '" +other+ "' WHERE KodSpisok ="+id ;
+      b=" UPDATE listsedan SET Typecommunicate = '" +other+ "' WHERE KodSpisok ="+id ;
       stmt.executeUpdate(b);
    }    
    if (name.equals("хетчбэк"))
    {
-      b=" UPDATE spisokperipherii SET Types = '" +other+ "' WHERE KodSpisok ="+id ;
+      b=" UPDATE listhatchback SET Types = '" +other+ "' WHERE KodSpisok ="+id ;
       stmt.executeUpdate(b);
    }
      }
