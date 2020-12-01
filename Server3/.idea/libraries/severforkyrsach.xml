@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="severforkyrsach">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/severforkyrsach.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,3 @@
+  32    телефон    Samsung Galaxy s9    1820.6  
+  44    ноутбук    aser rs300    1600  
+  1    кроссовер    Jaguar E-pace S    1440    2    седан    Volvo S90    1000  
