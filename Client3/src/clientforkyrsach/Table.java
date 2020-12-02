@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clientforkyrsach;
-import java.sql.ResultSet;
+
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
-/**
- *
- * @author ilya
- */
 public class Table extends AbstractTableModel 
 {
 
@@ -19,7 +10,7 @@ public class Table extends AbstractTableModel
  
  private String[] colNames = 
  {
-  "Код","Название","Модель","Цена"
+  "Код","Тип авто","Модель","Цена"
  };
 private  ArrayList<String[]> ResultSets=new ArrayList<>();
     

@@ -36,7 +36,7 @@ public class MultiThreadServer {
             socket = Integer.parseInt(property.getProperty("socket"));
             kodirovka=property.getProperty("kodirovka");
         } catch (IOException e) {
-            System.err.println("ОШИБКА: Файл свойств отсуствует!");
+            System.err.println("ОШИБКА: Файл свойств отсутствует!");//ОШИБКА: Файл свойств отсутствует!
         }
     try{ 
         System.setOut(new java.io.PrintStream(System.out, true, kodirovka));
@@ -52,23 +52,23 @@ public class MultiThreadServer {
         catch (Exception e) {}
         try (ServerSocket server = new ServerSocket(socket);
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in,"CP866"))) {
-            System.out.println("Server connected...");
+            System.out.println("Сервер подключился...");
             System.out.println("Port server "+ socket);
-            System.out.println("Сервер готов для работы"); 
+            System.out.println("Server is ready to work");//Сервер готов для работы
             while (!server.isClosed()) {               
                 if (br.ready()) {                  
-                    System.out.println("Сервер нашел сообщение");
+                    System.out.println("The server found the message");//Сервер нашел сообщение
                     String serverCommand = br.readLine();
                     if (serverCommand.equalsIgnoreCase("quit")) {
-                        System.out.println("Происходит закрытие сервера...");                        
+                        System.out.println("Server is shutting down..."); //Происходит закрытие сервера
                         break;
                     }
                 }
                   Socket clientAccepted = server.accept();
                 countplus();
-                System.out.println("Количество клиентов "+count);
+                System.out.println("Number of clients "+count);//Количество клиентов
                 executeIt.execute(new MonoThreadClientHandler(clientAccepted,stmt,mdbc));
-                System.out.println("Соединение с клиентом установлено");
+                System.out.println("Client connection established");//Соединение с клиентом установлено
             }
             executeIt.shutdown();
             server.close();

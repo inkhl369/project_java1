@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clientforkyrsach;
 
 import java.awt.Color;
@@ -17,10 +12,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author ilya
- */
 public class jframe2 extends javax.swing.JFrame {
 ObjectOutputStream coos;
 ObjectInputStream  cois;
@@ -911,7 +902,7 @@ diagrammframe.getContentPane().repaint();
         }
         catch(IOException | ClassNotFoundException e)
         {
-            System.out.println("Ошибка диаграммы");
+            System.out.println("Chart error");//"Ошибка диаграммы"
         }
     }//GEN-LAST:event_diagrammaActionPerformed
 
@@ -940,7 +931,7 @@ diagrammframe.getContentPane().repaint();
                    labelprice.setText(Double.toString(list.get(i).getPrice()));
                    labeldescription.setText(list.get(i).getDescription());
                    otherlabel.setText(Double.toString(list.get(i).getvolumeTrunk()));
-                   jLabel16.setText("Мощность(терафлопс)");
+                   jLabel16.setText("Объём багажника(л)");
                }
                if (Name1.equals("седан"))
                {
@@ -950,7 +941,7 @@ diagrammframe.getContentPane().repaint();
                    labelprice.setText(Double.toString(list.get(i).getPrice()));
                    labeldescription.setText(list.get(i).getDescription());
                    otherlabel.setText(list.get(i).getTypeOfDrive());
-                   jLabel16.setText("Тачпад");
+                   jLabel16.setText("Тип привода");
                }
                if (Name1.equals("внедорожник"))
                {
@@ -960,7 +951,7 @@ diagrammframe.getContentPane().repaint();
                    labelprice.setText(Double.toString(list.get(i).getPrice()));
                    labeldescription.setText(list.get(i).getDescription());
                    otherlabel.setText(list.get(i).getTypeSuspension());
-                   jLabel16.setText("Связь");
+                   jLabel16.setText("Тип сцепления");
                }
                if (Name1.equals("хетчбэк"))
                {
@@ -970,7 +961,7 @@ diagrammframe.getContentPane().repaint();
                    labelprice.setText(Double.toString(list.get(i).getPrice()));
                    labeldescription.setText(list.get(i).getDescription());
                    otherlabel.setText(list.get(i).getType());
-                   jLabel16.setText("Тип периферии");
+                   jLabel16.setText("Наличие пятой двери");
                    
                }
            }

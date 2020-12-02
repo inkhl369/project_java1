@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clientforkyrsach;
 
 import java.awt.Color;
@@ -14,10 +9,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author ilya
- */
 public class jframe22 extends javax.swing.JFrame {
 ObjectOutputStream coos;
 ObjectInputStream  cois;
@@ -569,7 +560,7 @@ private void tablica3()
         }
         catch(Exception e)
         {
-            System.out.println("Ошибка");
+            System.out.println("Error");
         }
         tablica1();
         maintable.clearSelection();
@@ -598,7 +589,7 @@ save.setBackground(Color.white);
                    price.setText(Double.toString(list.get(i).getPrice()));
                    description.setText(list.get(i).getDescription());
                    other.setText(Double.toString(list.get(i).getvolumeTrunk()));
-                   jLabel6.setText("Мощность(тф)");
+                   jLabel6.setText("Объём багажника(л)");
                }
                if (Name1.equals("седан"))
                {
@@ -608,7 +599,7 @@ save.setBackground(Color.white);
                    price.setText(Double.toString(list.get(i).getPrice()));
                    description.setText(list.get(i).getDescription());
                    other.setText(list.get(i).getTypeOfDrive());
-                   jLabel6.setText("Тачпад");
+                   jLabel6.setText("Тип привода");
                }
                if (Name1.equals("внедорожник"))
                {
@@ -618,7 +609,7 @@ save.setBackground(Color.white);
                    price.setText(Double.toString(list.get(i).getPrice()));
                    description.setText(list.get(i).getDescription());
                    other.setText(list.get(i).getTypeSuspension());
-                   jLabel6.setText("Связь");
+                   jLabel6.setText("Тип подвески");
                }
                if (Name1.equals("хетчбэк"))
                {
@@ -628,7 +619,7 @@ save.setBackground(Color.white);
                    price.setText(Double.toString(list.get(i).getPrice()));
                    description.setText(list.get(i).getDescription());
                    other.setText(list.get(i).getType());
-                   jLabel6.setText("Тип периферии");
+                   jLabel6.setText("Наличие пятой двери");
                }
            }
        }
@@ -639,7 +630,7 @@ save.setBackground(Color.white);
         try {
             if(model.getText().length()>2 &&  price.getText().length()>2){
             if(isDouble(price.getText())){
-                if (jLabel6.getText().equals("Мощность(тф)"))
+                if (jLabel6.getText().equals("Объём багажника"))
                {
                    if(isDouble(other.getText())){
              save.setBackground(Color.white);
@@ -715,7 +706,7 @@ save.setBackground(Color.white);
        adddesc.setText("");
        addother.setText("");
         jLabel11.setVisible(true);
-        jLabel11.setText("Мощность(тф)");
+        jLabel11.setText("Объём багажника");
         addother.setVisible(true); 
         addbutton.setVisible(true);
         }
@@ -736,7 +727,7 @@ save.setBackground(Color.white);
        adddesc.setText("");
        addother.setText("");
         jLabel11.setVisible(true);
-        jLabel11.setText("Тачпад");
+        jLabel11.setText("Тип привода");
         addother.setVisible(true); 
          addbutton.setVisible(true);
         }
@@ -747,7 +738,7 @@ save.setBackground(Color.white);
        adddesc.setText("");
        addother.setText("");
         jLabel11.setVisible(true);
-        jLabel11.setText("Связь");
+        jLabel11.setText("Тип подвески");
         addother.setVisible(true); 
          addbutton.setVisible(true);
         }
@@ -758,7 +749,7 @@ save.setBackground(Color.white);
        adddesc.setText("");
        addother.setText("");
        jLabel11.setVisible(true);
-        jLabel11.setText("Тип");
+        jLabel11.setText("Наличие пятой двери");
         addother.setVisible(true); 
          addbutton.setVisible(true);
         }
@@ -778,7 +769,7 @@ public static boolean isDouble(String x) throws NumberFormatException
         if(addmodel.getText().length()>0 && addprice.getText().length()>0 && adddesc.getText().length()>0 && addother.getText().length()>0)
        {
            if(isDouble(addprice.getText())){
-               if (jLabel11.getText().equals("Мощность(тф)"))
+               if (jLabel11.getText().equals("Объём багажника"))
                {
                    if(isDouble(addother.getText())){
                addbutton.setBackground(Color.white);
@@ -917,7 +908,7 @@ public static boolean isDouble(String x) throws NumberFormatException
         }
         catch(IOException | ClassNotFoundException e)
         {
-            System.out.println("Ошибка диаграммы");
+            System.out.println("Chart error");//Ошибка диаграммы
         }
     }//GEN-LAST:event_diagrActionPerformed
 

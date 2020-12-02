@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clientforkyrsach;
 
 import java.awt.Point;
@@ -12,11 +7,6 @@ import java.io.ObjectOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-/**
- *
- * @author ilya
- */
 public class jframe1 extends javax.swing.JFrame {
 ObjectOutputStream coos;
 ObjectInputStream  cois;
