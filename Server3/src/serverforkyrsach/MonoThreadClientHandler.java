@@ -51,7 +51,7 @@ public class MonoThreadClientHandler implements Runnable{
      ResultSet rs = null;
      String b ;
      b="SELECT * FROM users"
-             + " INNER JOIN acarddata on users.KodUsers=acarddata.KodUsers "
+             + " INNER JOIN dataCard on users.KodUsers=dataCard.KodUsers "
              + "where users.KodUsers="+ID;
      //System.out.print(b);
      try
@@ -59,7 +59,7 @@ public class MonoThreadClientHandler implements Runnable{
       rs = stmt.executeQuery(b);
      }
      catch(SQLException e){
-     System.out.println("РћС€РёР±РєР° Р·Р°РїСЂРѕСЃР° РґР»СЏ РґР°РЅРЅС‹С…");
+     System.out.println("Ошибка запроса для данных");
      }
      return rs;
     }
@@ -67,14 +67,14 @@ public class MonoThreadClientHandler implements Runnable{
     {
      ResultSet rs = null;
      String b ;
-     b="SELECT * FROM apannier INNER JOIN spisok on apannier.KodSpisok=spisok.KodSpisok where apannier.KodUsers="+ID;
+     b="SELECT * FROM pannier INNER JOIN list on pannier.KodSpisok=list.KodSpisok where pannier.KodUsers="+ID;
      //System.out.print(b);
      try
      {
       rs = stmt.executeQuery(b);
      }
      catch(SQLException e){
-     System.out.println("РћС€РёР±РєР° Р·Р°РїСЂРѕСЃР° РґР»СЏ РєРѕСЂР·РёРЅС‹");
+     System.out.println("Ошибка запроса для корзины");
      }
      return rs;
     }
@@ -89,7 +89,7 @@ public class MonoThreadClientHandler implements Runnable{
       rs = stmt.executeQuery(b);
      }
      catch(SQLException e){
-     System.out.println("РћС€РёР±РєР° Р·Р°РїСЂРѕСЃР° РґР»СЏ РєРѕСЂР·РёРЅС‹");
+     System.out.println("Ошибка запроса для корзины");
      }
      return rs;
     }
@@ -97,14 +97,14 @@ public class MonoThreadClientHandler implements Runnable{
     {
      ResultSet rs = null;
      String b ;
-     b="SELECT * FROM orders INNER JOIN spisok on orders.KodSpisok=spisok.KodSpisok where Descriptionoforder != 'РїСЂРѕРґР°РЅРѕ'";
+     b="SELECT * FROM orders INNER JOIN list on orders.KodSpisok=list.KodSpisok where Descriptionoforder != 'продано'";
      //System.out.print(b);
      try
      {
       rs = stmt.executeQuery(b);
      }
      catch(SQLException e){
-     System.out.println("РћС€РёР±РєР° Р·Р°РїСЂРѕСЃР° Р·Р°РєР°Р·Р°");
+     System.out.println("Ошибка запроса заказа");
      }
      return rs;
     }
@@ -112,14 +112,14 @@ public class MonoThreadClientHandler implements Runnable{
     {
      ResultSet rs = null;
      String b ;
-     b="SELECT * FROM orders INNER JOIN spisok on orders.KodSpisok=spisok.KodSpisok where Descriptionoforder != 'РЅРµ РїСЂРѕРґР°РЅРѕ'";
+     b="SELECT * FROM orders INNER JOIN list on orders.KodSpisok=list.KodSpisok where Descriptionoforder != 'не продано'";
      //System.out.print(b);
      try
      {
       rs = stmt.executeQuery(b);
      }
      catch(SQLException e){
-     System.out.println("РћС€РёР±РєР° Р·Р°РїСЂРѕСЃР° Р·Р°РєР°Р·Р°");
+     System.out.println("Ошибка запроса заказа");
      }
      return rs;
     }
@@ -127,14 +127,14 @@ public class MonoThreadClientHandler implements Runnable{
     {
      ResultSet rs = null;
      String b ;
-     b="SELECT * FROM spisok";
+     b="SELECT * FROM list";
      //System.out.print(b);
      try
      {
       rs = stmt.executeQuery(b);
      }
      catch(SQLException e){
-     System.out.println("РћС€РёР±РєР° Р·Р°РїСЂРѕСЃР° РґР»СЏ СЃРїРёСЃРєР° С‚РѕРІР°СЂРѕРІ");
+     System.out.println("Ошибка запроса для списка товаров");
      }
      return rs;
     }
@@ -142,14 +142,14 @@ public class MonoThreadClientHandler implements Runnable{
     {
      ResultSet rs = null;
      String b ;
-     b="SELECT * FROM spisok INNER JOIN listcrossover on spisok.KodSpisok=listcrossover.KodSpisok ";
+     b="SELECT * FROM list INNER JOIN listcrossover on list.KodSpisok=listcrossover.KodSpisok ";
      //System.out.print(b);
      try
      {
       rs = stmt.executeQuery(b);
      }
      catch(SQLException e){
-     System.out.println("РћС€РёР±РєР° Р·Р°РїСЂРѕСЃР° РґР»СЏ СЃРїРёСЃРєР° С‚РѕРІР°СЂРѕРІ");
+     System.out.println("Ошибка запроса для списка товаров");
      }
      return rs;
     }
@@ -157,14 +157,14 @@ public class MonoThreadClientHandler implements Runnable{
     {
      ResultSet rs = null;
      String b ;
-     b="SELECT * FROM spisok INNER JOIN listsedan on spisok.KodSpisok=listsedan.KodSpisok ";
+     b="SELECT * FROM list INNER JOIN listsedan on list.KodSpisok=listsedan.KodSpisok ";
      //System.out.print(b);
      try
      {
       rs = stmt.executeQuery(b);
      }
      catch(SQLException e){
-     System.out.println("РћС€РёР±РєР° Р·Р°РїСЂРѕСЃР° РґР»СЏ СЃРїРёСЃРєР° С‚РѕРІР°СЂРѕРІ");
+     System.out.println("Ошибка запроса для списка товаров");
      }
      return rs;
     }
@@ -172,14 +172,14 @@ public class MonoThreadClientHandler implements Runnable{
     {
      ResultSet rs = null;
      String b ;
-     b="SELECT * FROM spisok INNER JOIN listsuv on spisok.KodSpisok=listsuv.KodSpisok";
+     b="SELECT * FROM list INNER JOIN listsuv on list.KodSpisok=listsuv.KodSpisok";
      //System.out.print(b);
      try
      {
       rs = stmt.executeQuery(b);
      }
      catch(SQLException e){
-     System.out.println("РћС€РёР±РєР° Р·Р°РїСЂРѕСЃР° РґР»СЏ СЃРїРёСЃРєР° С‚РѕРІР°СЂРѕРІ");
+     System.out.println("Ошибка запроса для списка товаров");
      }
      return rs;
     }
@@ -187,14 +187,14 @@ public class MonoThreadClientHandler implements Runnable{
     {
      ResultSet rs = null;
      String b ;
-     b="SELECT * FROM spisok INNER JOIN listhatchback on spisok.KodSpisok=listhatchback.KodSpisok";
+     b="SELECT * FROM list INNER JOIN listhatchback on list.KodSpisok=listhatchback.KodSpisok";
      //System.out.print(b);
      try
      {
       rs = stmt.executeQuery(b);
      }
      catch(SQLException e){
-     System.out.println("РћС€РёР±РєР° Р·Р°РїСЂРѕСЃР° РґР»СЏ СЃРїРёСЃРєР° С‚РѕРІР°СЂРѕРІ");
+     System.out.println("Ошибка запроса для списка товаров");
      }
      return rs;
     }
@@ -202,14 +202,14 @@ public class MonoThreadClientHandler implements Runnable{
     {
      ResultSet rs = null;
      String b ;
-     b="SELECT * FROM spisok where Name1 like '%"+data+"%' or Model like '%"+data+"%' or Description like '%"+data+"%'";
+     b="SELECT * FROM list where Name1 like '%"+data+"%' or Model like '%"+data+"%' or Description like '%"+data+"%'";
      //System.out.print(b);
      try
      {
       rs = stmt.executeQuery(b);
      }
      catch(SQLException e){
-     System.out.println("РћС€РёР±РєР° Р·Р°РїСЂРѕСЃР° РґР»СЏ СЃРїРёСЃРєР° С‚РѕРІР°СЂРѕРІ");
+     System.out.println("Ошибка запроса для списка товаров");
      }
      return rs;
     }
@@ -230,14 +230,14 @@ public class MonoThreadClientHandler implements Runnable{
     {
      int q = 0;
      String b;
-     b="INSERT INTO users (Login,Password,roles,lastname,firstname,otchestvo,adres) VALUES ( '"+login+"','"+password+"','РєР»РёРµРЅС‚','','','','')";        
+     b="INSERT INTO users (Login,Password,roles,lastname,firstname,middlename,adds) VALUES ( '"+login+"','"+password+"','клиент','','','','')";
   //   System.out.print(b);
      try
      {
       q = stmt.executeUpdate(b);
      }
      catch(SQLException e){
-     System.out.println("РћС€РёР±РєР° СЂРµРіРёСЃС‚СЂР°С†РёРё");
+     System.out.println("Ошибка регистрации");
      }
      return q;
     }
@@ -245,14 +245,14 @@ public class MonoThreadClientHandler implements Runnable{
     {
      int q = 0;
      String d;
-     d="INSERT INTO acarddata(KodUsers,nomerkard,srok1,srok2,cvv2) VALUES ("+ID+",'',1,2018,0)";    
+     d="INSERT INTO dataCard(KodUsers,numberCard,validity1,validity2,cvv2) VALUES ("+ID+",'',1,2018,0)";
   //   System.out.print(b);
      try
      {
      q= stmt.executeUpdate(d);
      }
      catch(SQLException e){
-     System.out.println("РћС€РёР±РєР° СЂРµРіРёСЃС‚СЂР°С†РёРё");
+     System.out.println("Ошибка регистрации");
      }
      return q;
     }
@@ -266,7 +266,7 @@ public class MonoThreadClientHandler implements Runnable{
             String clientMessageRecieved = (String)sois.readObject();
 
             while (!serverSocket.isClosed()) {
-                if (clientMessageRecieved.equals("РІРѕР№С‚Рё"))
+                if (clientMessageRecieved.equals("войти"))
 {
     login = (String)sois.readObject();
     password = (String)sois.readObject(); 
@@ -286,23 +286,23 @@ public class MonoThreadClientHandler implements Runnable{
   }
   catch(Exception e)
   {
-   System.out.println("РћС€РёР±РєР° РїСЂРё СЃС‡РёС‚С‹РІР°РЅРёРё Р»РѕРіРёРЅР° Рё РїР°СЂРѕР»СЏ");
+   System.out.println("Ошибка при считывании логина и пароля");
   }
         if (login1.equals(login) && password1.equals(password))
         {
-            if(role.equals("Р°РґРјРёРЅ"))
-            soos.writeObject("РІС…РѕРґРєР°РєР°РґРјРёРЅ");
-            else soos.writeObject("РІС…РѕРґРєР°РєРїРѕР»СЊР·РѕРІР°С‚РµР»СЊ");   
+            if(role.equals("админ"))
+            soos.writeObject("входкакадмин");
+            else soos.writeObject("входкакпользователь");   
         }
         else soos.writeObject("0");
         mdbc.close(rs);       
        }
        catch(Exception e)
        {
-           System.out.print("РћС€РёР±РєР° 1");
+           System.out.print("Ошибка 1");
        }  
 }
- if (clientMessageRecieved.equals("РїРѕР»СѓС‡РёС‚СЊРґР°РЅРЅС‹Рµ"))
+ if (clientMessageRecieved.equals("получитьданные"))
  {
  ResultSet rs1 = getResultFromData();
          try
@@ -312,8 +312,8 @@ public class MonoThreadClientHandler implements Runnable{
     String[] row = 
     {
      rs1.getString("KodUsers"), rs1.getString("Login"),
-     rs1.getString("Password"), rs1.getString("lastname"),rs1.getString("firstname"),rs1.getString("otchestvo"),
-     rs1.getString("adres"),rs1.getString("nomerkard"),rs1.getString("srok1"),rs1.getString("srok2"),rs1.getString("cvv2")
+     rs1.getString("Password"), rs1.getString("lastname"),rs1.getString("firstname"),rs1.getString("middlename"),
+     rs1.getString("adds"),rs1.getString("numberCard"),rs1.getString("validity1"),rs1.getString("validity2"),rs1.getString("cvv2")
     };
        for (String row1 : row) 
        {
@@ -327,7 +327,7 @@ public class MonoThreadClientHandler implements Runnable{
   }
         mdbc.close(rs1);
  }
-if (clientMessageRecieved.equals("РєРѕСЂР·РёРЅР°"))
+if (clientMessageRecieved.equals("корзина"))
 { 
     ResultSet rs1 = getResultFromKorzina();    
          try
@@ -346,11 +346,11 @@ if (clientMessageRecieved.equals("РєРѕСЂР·РёРЅР°"))
   }
   catch(SQLException | NumberFormatException | IOException e)
   {
-   System.out.println("РћС€РёР±РєР° РїСЂРё СЃС‡РёС‚С‹РІР°РЅРёРё РєРѕСЂР·РёРЅС‹");
+   System.out.println("Ошибка при считывании корзины");
   }
         mdbc.close(rs1);
 } 
-if (clientMessageRecieved.equals("СЃС‚РѕРёРјРѕСЃС‚СЊРІРєРѕСЂР·РёРЅРµ"))
+if (clientMessageRecieved.equals("стоимостьвкорзине"))
 { 
     ResultSet rs1 = getResultFromKorzina();    
          try
@@ -365,11 +365,11 @@ if (clientMessageRecieved.equals("СЃС‚РѕРёРјРѕСЃС‚СЊРІРєРѕСЂР·РёРЅРµ"))
   }
   catch(SQLException | NumberFormatException | IOException e)
   {
-   System.out.println("РћС€РёР±РєР° РїСЂРё СЃС‡РёС‚С‹РІР°РЅРёРё РєРѕСЂР·РёРЅС‹");
+   System.out.println("Ошибка при считывании корзины");
   }
         mdbc.close(rs1);
 } 
-if (clientMessageRecieved.equals("РєРѕСЂР·РёРЅР°12"))
+if (clientMessageRecieved.equals("корзина12"))
 { 
     ResultSet rs1 = getResultFromKorzina();
     
@@ -406,7 +406,7 @@ if (clientMessageRecieved.equals("РєРѕСЂР·РёРЅР°12"))
         mdbc.close(rs1);
 } 
 
-if (clientMessageRecieved.equals("РєРѕСЂР·РёРЅР°1"))
+if (clientMessageRecieved.equals("корзина1"))
 { 
     ResultSet rs1 = getResultFromKorzina();
     
@@ -430,7 +430,7 @@ if (clientMessageRecieved.equals("РєРѕСЂР·РёРЅР°1"))
   }
         mdbc.close(rs1);
 } 
-if (clientMessageRecieved.equals("РєСѓРїРёС‚СЊ"))
+if (clientMessageRecieved.equals("купить"))
 { 
     ResultSet rs1 = getResultFromKorzina();
     
@@ -452,19 +452,19 @@ if (clientMessageRecieved.equals("РєСѓРїРёС‚СЊ"))
     date=calendar.get(Calendar.DATE);
     String b ;  
         for (String[] ResultSet : ResultSets) {
-            b = "INSERT INTO orders(KodUsers,KodSpisok,Data1,Descriptionoforder) values (" + ResultSet[1] + "," + ResultSet[2] +",'"+year+"."+month+"."+date+"','РЅРµ РїСЂРѕРґР°РЅРѕ')";
+            b = "INSERT INTO orders(KodUsers,KodSpisok,Data1,Descriptionoforder) values (" + ResultSet[1] + "," + ResultSet[2] +",'"+year+"."+month+"."+date+"','не продано')";
             stmt.executeUpdate(b);
-            b="DELETE FROM apannier WHERE KodPannier=" + ResultSet[0];
+            b="DELETE FROM pannier WHERE KodPannier=" + ResultSet[0];
             stmt.executeUpdate(b);
         }      
   }
   catch(SQLException e)
   {
-   System.out.println("РћС€РёР±РєР° РїСЂРё РїРѕРєСѓРїРєРµ");
+   System.out.println("Ошибка при покупке");
   }
         mdbc.close(rs1);
 } 
-if (clientMessageRecieved.equals("РЎРїРёСЃРѕРєР—Р°РєР°Р·С‡РёРєРѕРІ"))
+if (clientMessageRecieved.equals("СписокЗаказчиков"))
 { 
     String ID1=(String)sois.readObject();
     ResultSet rs1 = getResultFromOrders(ID1); 
@@ -476,7 +476,7 @@ if (clientMessageRecieved.equals("РЎРїРёСЃРѕРєР—Р°РєР°Р·С‡РёРєРѕРІ"))
     String[] row = 
     {
      rs1.getString("KodUsers"),rs1.getString("lastname"), rs1.getString("firstname"),
-     rs1.getString("otchestvo"),rs1.getString("adres")
+     rs1.getString("middlename"),rs1.getString("adds")
     };
     ResultSets.add(row);
    } 
@@ -488,14 +488,14 @@ if (clientMessageRecieved.equals("РЎРїРёСЃРѕРєР—Р°РєР°Р·С‡РёРєРѕРІ"))
   }
         mdbc.close(rs1);
 }
-if (clientMessageRecieved.equals("РџСЂРѕРґР°Р¶Р°С‚РµС…РЅРёРєРё"))
+if (clientMessageRecieved.equals("Продажатехники"))
 { 
     String ID1=(String)sois.readObject();
     
          try
   {   
      String b;
-     b="Update orders set Descriptionoforder='РїСЂРѕРґР°РЅРѕ' where KodOrders="+ID1;
+     b="Update orders set Descriptionoforder='продано' where KodOrders="+ID1;
      stmt.executeUpdate(b);
   }
   catch(SQLException e)
@@ -504,7 +504,7 @@ if (clientMessageRecieved.equals("РџСЂРѕРґР°Р¶Р°С‚РµС…РЅРёРєРё"))
   }
         
 }
-if (clientMessageRecieved.equals("РЎРїРёСЃРѕРєР—Р°РїСЂРѕСЃРѕРІ"))
+if (clientMessageRecieved.equals("СписокЗапросов"))
 { 
     
     ResultSet rs1 = getResultFromOrders1(); 
@@ -528,7 +528,7 @@ if (clientMessageRecieved.equals("РЎРїРёСЃРѕРєР—Р°РїСЂРѕСЃРѕРІ"))
   }
         mdbc.close(rs1);
 }
-if (clientMessageRecieved.equals("РЎРїРёСЃРѕРєРїСЂРѕРґР°РЅРЅРѕР№С‚РµС…РЅРёРєРё"))
+if (clientMessageRecieved.equals("Списокпроданнойтехники"))
 { 
     ResultSet rs1 = getResultFromOrders2(); 
          try
@@ -551,7 +551,7 @@ if (clientMessageRecieved.equals("РЎРїРёСЃРѕРєРїСЂРѕРґР°РЅРЅРѕР№С‚РµС…РЅРёРєРё")
   }
         mdbc.close(rs1);
 }
-if (clientMessageRecieved.equals("Р°РґРјРёРЅРґРёР°РіСЂР°РјРјР°"))
+if (clientMessageRecieved.equals("админдиаграмма"))
 { 
     ResultSet rs1 = getResultFromOrders2(); 
          try
@@ -559,13 +559,13 @@ if (clientMessageRecieved.equals("Р°РґРјРёРЅРґРёР°РіСЂР°РјРјР°"))
       double q=0,w=0,e=0,s=0;
     while(rs1.next())
    {
-       if(rs1.getString("Name1").equals("РєСЂРѕСЃСЃРѕРІРµСЂ"))
+       if(rs1.getString("Name1").equals("кроссовер"))
            q++;
-       if(rs1.getString("Name1").equals("РІРЅРµРґРѕСЂРѕР¶РЅРёРє"))
+       if(rs1.getString("Name1").equals("внедорожник"))
            w++;
-       if(rs1.getString("Name1").equals("СЃРµРґР°РЅ"))
+       if(rs1.getString("Name1").equals("седан"))
            e++;
-       if(rs1.getString("Name1").equals("С…РµС‚С‡Р±СЌРє"))
+       if(rs1.getString("Name1").equals("хетчбэк"))
            s++;
    } 
     soos.writeObject(q);
@@ -575,11 +575,11 @@ if (clientMessageRecieved.equals("Р°РґРјРёРЅРґРёР°РіСЂР°РјРјР°"))
   }
   catch(SQLException | IOException e)
   {
-   System.out.println("РћС€РёР±РєР° РІ РґРёР°РіСЂР°РјРјРµ РґР»СЏ Р°РґРјРёРЅР°");
+   System.out.println("Ошибка в диаграмме для админа");
   }
         mdbc.close(rs1);
 }
-if (clientMessageRecieved.equals("РџРѕР»СѓС‡РµРЅРЅР°СЏРїСЂРёР±С‹Р»СЊ"))
+if (clientMessageRecieved.equals("Полученнаяприбыль"))
 { 
     ResultSet rs1 = getResultFromOrders2(); 
          try
@@ -598,20 +598,20 @@ if (clientMessageRecieved.equals("РџРѕР»СѓС‡РµРЅРЅР°СЏРїСЂРёР±С‹Р»СЊ"))
   }
         mdbc.close(rs1);
 }
-if (clientMessageRecieved.equals("РґР°РЅРЅС‹РµРІРєРѕСЂР·РёРЅСѓ"))
+if (clientMessageRecieved.equals("данныевкорзину"))
 { 
    String ID2 = (String)sois.readObject();
      try
      { 
          String b ;  
-         b="INSERT INTO apannier(KodUsers,KodSpisok) values ("+ID+","+ID2+")";   
+         b="INSERT INTO pannier(KodUsers,KodSpisok) values ("+ID+","+ID2+")";
       stmt.executeUpdate(b);
      }
      catch(SQLException e){
-     System.out.println("РґРѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ РєРѕСЂР·РёРЅСѓ РЅРµ СѓРґР°С‡РЅРѕ");
+     System.out.println("добавление данных в корзину не удачно");
      }
 }
-if (clientMessageRecieved.equals("РґРѕР±Р°РІР»РµРЅРёРµС‚РѕРІР°СЂР°"))
+if (clientMessageRecieved.equals("добавлениетовара"))
 { 
    String Name1 = (String)sois.readObject();
    String Model = (String)sois.readObject();
@@ -622,32 +622,32 @@ if (clientMessageRecieved.equals("РґРѕР±Р°РІР»РµРЅРёРµС‚РѕРІР°СЂР°"))
      { 
          String b ;
          
-         b="INSERT INTO spisok(Name1,Model,Price,Description) values ('"+Name1+"','"+Model+"',"+Price+",'"+Description+"')"; 
+         b="INSERT INTO list(Name1,Model,Price,Description) values ('"+Name1+"','"+Model+"',"+Price+",'"+Description+"')";
          stmt.executeUpdate(b);  
          
          ResultSet rs;
-      b="SELECT * FROM spisok where Name1 like '"+Name1+"' and Model like '"+Model+"'";
+      b="SELECT * FROM list where Name1 like '"+Name1+"' and Model like '"+Model+"'";
       rs = stmt.executeQuery(b);
       String id = "";
     while(rs.next())
     {
         id=rs.getString("KodSpisok");
     }
-            if (Name1.equals("РєСЂРѕСЃСЃРѕРІРµСЂ"))
-                 b="INSERT INTO listcrossover(KodSpisok,Computpower) values ("+id+","+other+")";
-            if ( Name1.equals("РІРЅРµРґРѕСЂРѕР¶РЅРёРє"))
-                 b="INSERT INTO listsuv(KodSpisok,Typecommunicate) values ("+id+",'"+other+"')";
-            if (Name1.equals("СЃРµРґР°РЅ"))
-                 b="INSERT INTO listsedan(KodSpisok,TachPad) values ("+id+",'"+other+"')";
-            if (Name1.equals("С…РµС‚С‡Р±СЌРє"))
-                 b="INSERT INTO listhatchback(KodSpisok,Types) values ("+id+",'"+other+"')";
+            if (Name1.equals("кроссовер"))
+                 b="INSERT INTO listcrossover(KodSpisok,volumeTrunk) values ("+id+","+other+")";
+            if ( Name1.equals("внедорожник"))
+                 b="INSERT INTO listsuv(KodSpisok,TypeSuspension) values ("+id+",'"+other+"')";
+            if (Name1.equals("седан"))
+                 b="INSERT INTO listsedan(KodSpisok,TypeOfDrive) values ("+id+",'"+other+"')";
+            if (Name1.equals("хетчбэк"))
+                 b="INSERT INTO listhatchback(KodSpisok,presenceFifthDoor) values ("+id+",'"+other+"')";
             stmt.executeUpdate(b);
      }
      catch(SQLException e){
-     System.out.println("РґРѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РІ С‚Р°Р±Р»РёС†Сѓ РЅРµ СѓРґР°С‡РЅРѕ");
+     System.out.println("добавление данных в таблицу не удачно");
      }
 }
-if (clientMessageRecieved.equals("РґР°РЅРЅС‹РµРіР»Р°РІРЅРѕР№С‚Р°Р±Р»РёС†С‹"))
+if (clientMessageRecieved.equals("данныеглавнойтаблицы"))
 { 
     ResultSet rs1 = getResultFromSpisokTovarov();   
          try
@@ -666,12 +666,12 @@ if (clientMessageRecieved.equals("РґР°РЅРЅС‹РµРіР»Р°РІРЅРѕР№С‚Р°Р±Р»РёС†С‹"))
   }
   catch(SQLException | IOException e)
   {
-   System.out.println("Exception in spisok tovarov");
+   System.out.println("Exception in list tovarov");
   }
         mdbc.close(rs1);      
 }
 
-if (clientMessageRecieved.equals("РґР°РЅРЅС‹РµРёР·С‚Р°Р±Р»РёС†"))
+if (clientMessageRecieved.equals("данныеизтаблиц"))
 { 
     ResultSet rs1 = getResultFromSpisokTovarov4();   
          try
@@ -685,7 +685,7 @@ if (clientMessageRecieved.equals("РґР°РЅРЅС‹РµРёР·С‚Р°Р±Р»РёС†"))
     String[] row = 
     {
      rs1.getString("KodSpisok"),rs1.getString("Name1"), rs1.getString("Model"),
-     rs1.getString("Price"),rs1.getString("Description"),rs1.getString("Computpower")
+     rs1.getString("Price"),rs1.getString("Description"),rs1.getString("volumeTrunk")
     };
     ResultSets.add(row);
    } 
@@ -696,7 +696,7 @@ if (clientMessageRecieved.equals("РґР°РЅРЅС‹РµРёР·С‚Р°Р±Р»РёС†"))
     String[] row = 
     {
      rs2.getString("KodSpisok"),rs2.getString("Name1"), rs2.getString("Model"),
-     rs2.getString("Price"),rs2.getString("Description"),rs2.getString("TachPad")
+     rs2.getString("Price"),rs2.getString("Description"),rs2.getString("TypeOfDrive")
     };
     ResultSets1.add(row);
    }
@@ -708,7 +708,7 @@ if (clientMessageRecieved.equals("РґР°РЅРЅС‹РµРёР·С‚Р°Р±Р»РёС†"))
     String[] row = 
     {
      rs3.getString("KodSpisok"),rs3.getString("Name1"), rs3.getString("Model"),
-     rs3.getString("Price"),rs3.getString("Description"),rs3.getString("Typecommunicate")
+     rs3.getString("Price"),rs3.getString("Description"),rs3.getString("TypeSuspension")
     };
     ResultSets2.add(row);
    }
@@ -720,7 +720,7 @@ if (clientMessageRecieved.equals("РґР°РЅРЅС‹РµРёР·С‚Р°Р±Р»РёС†"))
     String[] row = 
     {
      rs4.getString("KodSpisok"),rs4.getString("Name1"), rs4.getString("Model"),
-     rs4.getString("Price"),rs4.getString("Description"),rs4.getString("Types")
+     rs4.getString("Price"),rs4.getString("Description"),rs4.getString("presenceFifthDoor")
     };
     ResultSets3.add(row);
    }
@@ -734,7 +734,7 @@ if (clientMessageRecieved.equals("РґР°РЅРЅС‹РµРёР·С‚Р°Р±Р»РёС†"))
         mdbc.close(rs1);
         
 }
-if (clientMessageRecieved.equals("РїРѕРёСЃРєРІРіР»Р°РІРЅРѕР№С‚Р°Р±Р»РёС†Рµ"))
+if (clientMessageRecieved.equals("поисквглавнойтаблице"))
 { 
     String data=(String)sois.readObject();
     ResultSet rs1 = getResultFromSpisokTovarov1(data); 
@@ -754,36 +754,36 @@ if (clientMessageRecieved.equals("РїРѕРёСЃРєРІРіР»Р°РІРЅРѕР№С‚Р°Р±Р»РёС†Рµ"))
    }
   catch(Exception e)
   {
-   System.out.println("РћС€РёР±РєР° РїСЂРё РїРѕРёСЃРєРµ");
+   System.out.println("Ошибка при поиске");
   }
           soos.writeObject(ResultSets);
         mdbc.close(rs1);
 } 
-if (clientMessageRecieved.equals("СѓРґР°Р»РёС‚СЊРёР·РєРѕСЂР·РёРЅС‹"))
+if (clientMessageRecieved.equals("удалитьизкорзины"))
 {    
      try
      { int id = (int)sois.readObject();
          String b ;  
-     b="DELETE FROM apannier WHERE KodPannier=" + id;
+     b="DELETE FROM pannier WHERE KodPannier=" + id;
       stmt.executeUpdate(b);
      }
      catch(SQLException e){
-     System.out.println("СѓРґР°Р»РµРЅРёРµ РґР°РЅРЅС‹С… РЅРµ СѓРґР°С‡РЅРѕ");
+     System.out.println("удаление данных не удачно");
      }
 }
-if (clientMessageRecieved.equals("СѓРґР°Р»РёС‚СЊРёР·С‚Р°Р±Р»РёС†С‹С‚РѕРІР°СЂРѕРІ"))
+if (clientMessageRecieved.equals("удалитьизтаблицытоваров"))
 {    
      try
      { int id = (int)sois.readObject();
          String b = "";
-         b="DELETE FROM spisok WHERE KodSpisok=" + id;
+         b="DELETE FROM list WHERE KodSpisok=" + id;
       stmt.executeUpdate(b);
      }
      catch(SQLException e){
-     System.out.println("СѓРґР°Р»РµРЅРёРµ РґР°РЅРЅС‹С… РЅРµ СѓРґР°С‡РЅРѕ");
+     System.out.println("удаление данных не удачно");
      }
 }
-if (clientMessageRecieved.equals("РѕР±РЅРѕРІРёС‚СЊРґР°РЅРЅС‹Рµ"))
+if (clientMessageRecieved.equals("обновитьданные"))
 {  
      try
      { String b ;
@@ -796,29 +796,29 @@ if (clientMessageRecieved.equals("РѕР±РЅРѕРІРёС‚СЊРґР°РЅРЅС‹Рµ"))
      b="UPDATE users SET firstname = '" +data+ "' WHERE KodUsers ="+ID ;
       stmt.executeUpdate(b);
        data=(String)sois.readObject();   
-     b="UPDATE users SET otchestvo = '" +data+ "' WHERE KodUsers ="+ID ;
+     b="UPDATE users SET middlename = '" +data+ "' WHERE KodUsers ="+ID ;
       stmt.executeUpdate(b);
        data=(String)sois.readObject();   
-     b="UPDATE users SET adres = '" +data+ "' WHERE KodUsers ="+ID ;
+     b="UPDATE users SET adds = '" +data+ "' WHERE KodUsers ="+ID ;
       stmt.executeUpdate(b);
        data=(String)sois.readObject();   
-     b="UPDATE acarddata SET nomerkard = '" +data+ "' WHERE KodUsers ="+ID ;
+     b="UPDATE dataCard SET numberCard = '" +data+ "' WHERE KodUsers ="+ID ;
       stmt.executeUpdate(b);
       data=(String)sois.readObject();   
-     b="UPDATE acarddata SET cvv2 = '" +data+ "' WHERE KodUsers ="+ID ;
+     b="UPDATE dataCard SET cvv2 = '" +data+ "' WHERE KodUsers ="+ID ;
       stmt.executeUpdate(b);
       data=(String)sois.readObject();   
-     b="UPDATE acarddata SET srok1 = '" +data+ "' WHERE KodUsers ="+ID ;
+     b="UPDATE dataCard SET validity1 = '" +data+ "' WHERE KodUsers ="+ID ;
       stmt.executeUpdate(b);
       data=(String)sois.readObject();   
-     b="UPDATE acarddata SET srok2 = '" +data+ "' WHERE KodUsers ="+ID ;
+     b="UPDATE dataCard SET validity2 = '" +data+ "' WHERE KodUsers ="+ID ;
       stmt.executeUpdate(b);
      }
      catch(SQLException e){
-     System.out.println("РћР±РЅРѕРІР»РµРЅРёРµ РґР°РЅРЅС‹С… РЅРµ СѓРґР°С‡РЅРѕ");
+     System.out.println("Обновление данных не удачно");
      }
 } 
-if (clientMessageRecieved.equals("РѕР±РЅРѕРІРёС‚СЊРґР°РЅРЅС‹РµС‚Р°Р±Р»РёС†С‹"))
+if (clientMessageRecieved.equals("обновитьданныетаблицы"))
 {  
      try
      { String b ;
@@ -829,39 +829,39 @@ if (clientMessageRecieved.equals("РѕР±РЅРѕРІРёС‚СЊРґР°РЅРЅС‹РµС‚Р°Р±Р»РёС†С‹"))
      price=(String)sois.readObject(); 
      desc=(String)sois.readObject(); 
      other=(String)sois.readObject(); 
-     b=" UPDATE spisok SET Model = '" +model+ "' WHERE KodSpisok ="+id ;
+     b=" UPDATE list SET Model = '" +model+ "' WHERE KodSpisok ="+id ;
       stmt.executeUpdate(b);
-      b=" UPDATE spisok SET Price = '" +price+ "' WHERE KodSpisok ="+id ;
+      b=" UPDATE list SET Price = '" +price+ "' WHERE KodSpisok ="+id ;
       stmt.executeUpdate(b);
-      b=" UPDATE spisok SET Description = '" +desc+ "' WHERE KodSpisok ="+id ;
+      b=" UPDATE list SET Description = '" +desc+ "' WHERE KodSpisok ="+id ;
       stmt.executeUpdate(b);
      
-   if (name.equals("РєСЂРѕСЃСЃРѕРІРµСЂ"))
+   if (name.equals("кроссовер"))
    { 
-      b=" UPDATE listcrossover SET Computpower = '" +other+ "' WHERE KodSpisok ="+id ;
+      b=" UPDATE listcrossover SET volumeTrunk = '" +other+ "' WHERE KodSpisok ="+id ;
       stmt.executeUpdate(b);
    }
-   if (name.equals("СЃРµРґР°РЅ"))
+   if (name.equals("седан"))
    {
-      b=" UPDATE listsedan SET TachPad = '" +other+ "' WHERE KodSpisok ="+id ;
+      b=" UPDATE listsedan SET TypeOfDrive = '" +other+ "' WHERE KodSpisok ="+id ;
       stmt.executeUpdate(b);
    }       
-   if (name.equals("РІРЅРµРґРѕСЂРѕР¶РЅРёРє"))
+   if (name.equals("внедорожник"))
    {
-      b=" UPDATE listsedan SET Typecommunicate = '" +other+ "' WHERE KodSpisok ="+id ;
+      b=" UPDATE listsedan SET TypeSuspension = '" +other+ "' WHERE KodSpisok ="+id ;
       stmt.executeUpdate(b);
    }    
-   if (name.equals("С…РµС‚С‡Р±СЌРє"))
+   if (name.equals("хетчбэк"))
    {
-      b=" UPDATE listhatchback SET Types = '" +other+ "' WHERE KodSpisok ="+id ;
+      b=" UPDATE listhatchback SET presenceFifthDoor = '" +other+ "' WHERE KodSpisok ="+id ;
       stmt.executeUpdate(b);
    }
      }
      catch(SQLException e){
-     System.out.println("РћР±РЅРѕРІР»РµРЅРёРµ РґР°РЅРЅС‹С… РЅРµ СѓРґР°С‡РЅРѕ");
+     System.out.println("Обновление данных не удачно");
      }
 } 
-if (clientMessageRecieved.equals("Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ"))
+if (clientMessageRecieved.equals("зарегистрировать"))
 {
     login = (String)sois.readObject();
     password = (String)sois.readObject();
@@ -882,10 +882,10 @@ if (clientMessageRecieved.equals("Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ"))
   }
   catch(Exception e)
   {
-   System.out.println("РћС€РёР±РєР° РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё ");
+   System.out.println("Ошибка при регистрации ");
   }
         if (login1.equals(login)){
-            soos.writeObject("С‚Р°РєРѕР№Р»РѕРіРёРЅРµСЃС‚СЊ");}
+            soos.writeObject("такойлогинесть");}
         else 
         {
             int q;
@@ -896,13 +896,13 @@ if (clientMessageRecieved.equals("Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ"))
      ID=rs1.getString("KodUsers");
    }
    q = getResultFromRegistration1();
-         soos.writeObject("СЂРµРіРёСЃС‚СЂР°С†РёСЏСѓСЃРїРµС€РЅР°");
+         soos.writeObject("регистрацияуспешна");
         }
         mdbc.close(rs);         
        }
        catch(IOException | SQLException e)
        {
-           System.out.print("РћС€РёР±РєР° 2");
+           System.out.print("Ошибка 2");
        }
 }
       if (clientMessageRecieved.equalsIgnoreCase("quit")) 
@@ -913,11 +913,11 @@ if (clientMessageRecieved.equals("Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ"))
     clientMessageRecieved = (String)sois.readObject();
             }
 
-            System.out.println("РљР»РёРµРЅС‚ РѕС‚РєР»СЋС‡РёР»СЃСЏ");
+            System.out.println("Клиент отключился");
             sois.close();
            soos.close();
            countminus();
-            System.out.println("РљРѕР»РёС‡РµСЃС‚РІРѕ РєР»РёРµРЅС‚РѕРІ "+count);
+            System.out.println("Количество клиентов "+count);
          //   serverSocket.close();
 
         } catch (IOException | InterruptedException e) {

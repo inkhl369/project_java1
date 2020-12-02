@@ -154,10 +154,25 @@ create table orders
     FOREIGN KEY (KodSpisok) REFERENCES spisok(KodSpisok) on update cascade on delete cascade
 );
 
+
 rename table spisokpk to listcrossover;
 rename table spisokperipherii to listhatchback;
 rename table spisoklaptod to listsedan;
 rename table spisokmobilephone to listsuv;
+
+rename table apannier to pannier;
+rename table spisok to list;
+rename table acarddata to dataCard;
+
+ALTER TABLE listhatchback CHANGE Types presenceFifthDoor VARCHAR(40);
+ALTER TABLE listcrossover CHANGE Computpower volumeTrunk double;
+ALTER TABLE listsedan CHANGE TachPad TypeOfDrive VARCHAR(40);
+ALTER TABLE listsuv CHANGE Typecommunicate TypeSuspension VARCHAR(40);
+ALTER TABLE users CHANGE otchestvo middlename VARCHAR(40);
+ALTER TABLE users CHANGE adres adds VARCHAR(60);
+ALTER TABLE acarddata CHANGE nomerkard numberCard VARCHAR(40);
+ALTER TABLE acarddata CHANGE srok1 validity1 int;
+ALTER TABLE acarddata CHANGE srok2 validity2 int;
 
 
 

@@ -1,3 +1,6 @@
   32    телефон    Samsung Galaxy s9    1820.6  
   44    ноутбук    aser rs300    1600  
   1    кроссовер    Jaguar E-pace S    1440    2    седан    Volvo S90    1000  
+  11    кроссовер    Lexus RX 300 AWD F SPORT    3240  
+  14    хетчбэк    Honda Insight    29.99  
+  15    хетчбэк    Smart Fortwo    139.99    16    хетчбэк    Opel Signum    199.99  
