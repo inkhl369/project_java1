@@ -5,3 +5,6 @@
   14    хетчбэк    Honda Insight    29.99  
   15    хетчбэк    Smart Fortwo    139.99    16    хетчбэк    Opel Signum    199.99  
   24    кроссовер    Mazda CX-5 Supreme    1540  
+  29    кроссовер    Jaguar E-pace S    1440    30    внедорожник    Honda HR-V    1820.6  
+  31    кроссовер    Geely Coolray Flagshipd    3170  
+  32    кроссовер    Kia Sportage Premium    1200  

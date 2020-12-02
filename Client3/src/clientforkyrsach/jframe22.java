@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class jframe22 extends javax.swing.JFrame {
 ObjectOutputStream coos;
 ObjectInputStream  cois;
-ArrayList<computertechnika> spisok;
+ArrayList<cars> list;
 PieChart a;
     /**
      * Creates new form jframe22
@@ -60,31 +60,31 @@ private void tablica3()
     {
     try
        {  
-           spisok = new ArrayList<>();
+           list = new ArrayList<>();
             ArrayList<String[]> ResultSets;           
             coos.writeObject("данныеизтаблиц");
             ResultSets=(ArrayList<String[]>)cois.readObject(); 
         for (String[] ResultSet : ResultSets) {
-            PK pk=new PK(ResultSet[0],ResultSet[1],ResultSet[2],Double.parseDouble(ResultSet[3]),ResultSet[4],Double.parseDouble(ResultSet[5]));
-            spisok.add(pk);
+            crossover pk=new crossover(ResultSet[0],ResultSet[1],ResultSet[2],Double.parseDouble(ResultSet[3]),ResultSet[4],Double.parseDouble(ResultSet[5]));
+            list.add(pk);
         }
          ResultSets = new ArrayList<>();
          ResultSets=(ArrayList<String[]>)cois.readObject();
          for (String[] ResultSet : ResultSets) {
-            laptod pk=new laptod(ResultSet[0],ResultSet[1],ResultSet[2],Double.parseDouble(ResultSet[3]),ResultSet[4],ResultSet[5]);
-            spisok.add(pk);
+            sedan pk=new sedan(ResultSet[0],ResultSet[1],ResultSet[2],Double.parseDouble(ResultSet[3]),ResultSet[4],ResultSet[5]);
+            list.add(pk);
         }
          ResultSets = new ArrayList<>();
          ResultSets=(ArrayList<String[]>)cois.readObject();
          for (String[] ResultSet : ResultSets) {
-            mobile pk=new mobile(ResultSet[0],ResultSet[1],ResultSet[2],Double.parseDouble(ResultSet[3]),ResultSet[4],ResultSet[5]);
-            spisok.add(pk);
+            suv pk=new suv(ResultSet[0],ResultSet[1],ResultSet[2],Double.parseDouble(ResultSet[3]),ResultSet[4],ResultSet[5]);
+            list.add(pk);
         }
          ResultSets = new ArrayList<>();
          ResultSets=(ArrayList<String[]>)cois.readObject();
          for (String[] ResultSet : ResultSets) {
-            computersperiphery pk=new computersperiphery(ResultSet[0],ResultSet[1],ResultSet[2],Double.parseDouble(ResultSet[3]),ResultSet[5],ResultSet[4]);
-            spisok.add(pk);
+            hatchback pk=new hatchback(ResultSet[0],ResultSet[1],ResultSet[2],Double.parseDouble(ResultSet[3]),ResultSet[5],ResultSet[4]);
+            list.add(pk);
         }      
        }
        catch(IOException | ClassNotFoundException e)
@@ -586,48 +586,48 @@ save.setBackground(Color.white);
        redactframe.setBounds(point.x+60, point.y+90, 400, 400);
        String Name1=(String)maintable.getValueAt(maintable.getSelectedRow(), 1);
        String ID = Integer.toString((Integer)maintable.getValueAt(maintable.getSelectedRow(), 0));
-       for(int i=0;i<spisok.size();i++)
+       for(int i=0;i<list.size();i++)
        {
-           if(spisok.get(i).getID().equals(ID) && spisok.get(i).getName().equals(Name1))
+           if(list.get(i).getID().equals(ID) && list.get(i).getName().equals(Name1))
            {
                if (Name1.equals("кроссовер"))
                {
                    labelid.setText(ID);
                    labelname.setText(Name1);
-                   model.setText(spisok.get(i).getModel());
-                   price.setText(Double.toString(spisok.get(i).getPrice()));
-                   description.setText(spisok.get(i).getDescription());
-                   other.setText(Double.toString(spisok.get(i).getComputpower()));
+                   model.setText(list.get(i).getModel());
+                   price.setText(Double.toString(list.get(i).getPrice()));
+                   description.setText(list.get(i).getDescription());
+                   other.setText(Double.toString(list.get(i).getvolumeTrunk()));
                    jLabel6.setText("Мощность(тф)");
                }
                if (Name1.equals("седан"))
                {
                    labelid.setText(ID);
                    labelname.setText(Name1);
-                   model.setText(spisok.get(i).getModel());
-                   price.setText(Double.toString(spisok.get(i).getPrice()));
-                   description.setText(spisok.get(i).getDescription());
-                   other.setText(spisok.get(i).getSensorpanel());
+                   model.setText(list.get(i).getModel());
+                   price.setText(Double.toString(list.get(i).getPrice()));
+                   description.setText(list.get(i).getDescription());
+                   other.setText(list.get(i).getTypeOfDrive());
                    jLabel6.setText("Тачпад");
                }
                if (Name1.equals("внедорожник"))
                {
                    labelid.setText(ID);
                    labelname.setText(Name1);
-                   model.setText(spisok.get(i).getModel());
-                   price.setText(Double.toString(spisok.get(i).getPrice()));
-                   description.setText(spisok.get(i).getDescription());
-                   other.setText(spisok.get(i).getSupcomgen());
+                   model.setText(list.get(i).getModel());
+                   price.setText(Double.toString(list.get(i).getPrice()));
+                   description.setText(list.get(i).getDescription());
+                   other.setText(list.get(i).getTypeSuspension());
                    jLabel6.setText("Связь");
                }
                if (Name1.equals("хетчбэк"))
                {
                    labelid.setText(ID);
                    labelname.setText(Name1);
-                   model.setText(spisok.get(i).getModel());
-                   price.setText(Double.toString(spisok.get(i).getPrice()));
-                   description.setText(spisok.get(i).getDescription());
-                   other.setText(spisok.get(i).getType());
+                   model.setText(list.get(i).getModel());
+                   price.setText(Double.toString(list.get(i).getPrice()));
+                   description.setText(list.get(i).getDescription());
+                   other.setText(list.get(i).getType());
                    jLabel6.setText("Тип периферии");
                }
            }
