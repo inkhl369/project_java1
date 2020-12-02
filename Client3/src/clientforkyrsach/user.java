@@ -13,38 +13,38 @@ import java.io.Serializable;
  */
 public class user implements Serializable{
     String login,password,ID;
-    String familia;
+    String lastname;
     String name;
-    String otchestvo;
+    String middlename;
     String adres;
     String nomercard;
-    String srok1,srok2;
+    String validity1,validity2;
     String cvv2;
 
     public user() {
         login="";
         password="";
         ID="";
-        familia="1";
+        lastname="1";
         name="1";
-        otchestvo="1";
+        middlename="1";
         adres="1";
         nomercard="1";
-        srok1="1";
-        srok2="2018";
+        validity1="1";
+        validity2="2018";
         cvv2="123";
     }
-    public user(String login, String password, String ID, String familia, String name, String otchestvo, String adres, String nomercard, String srok1, String srok2, String cvv2) {
+    public user(String login, String password, String ID, String lastname, String name, String middlename, String adres, String nomercard, String validity1, String validity2, String cvv2) {
         this.login = login;
         this.password = password;
         this.ID = ID;
-        this.familia = familia;
+        this.lastname = lastname;
         this.name = name;
-        this.otchestvo = otchestvo;
+        this.middlename = middlename;
         this.adres = adres;
         this.nomercard = nomercard;
-        this.srok1 = srok1;
-        this.srok2 = srok2;
+        this.validity1 = validity1;
+        this.validity2 = validity2;
         this.cvv2 = cvv2;
     }
 
@@ -72,12 +72,12 @@ public class user implements Serializable{
         this.ID = ID;
     }
 
-    public String getFamilia() {
-        return familia;
+    public String getlastname() {
+        return lastname;
     }
 
-    public void setFamilia(String familia) {
-        this.familia = familia;
+    public void setlastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getName() {
@@ -88,12 +88,12 @@ public class user implements Serializable{
         this.name = name;
     }
 
-    public String getOtchestvo() {
-        return otchestvo;
+    public String getmiddlename() {
+        return middlename;
     }
 
-    public void setOtchestvo(String otchestvo) {
-        this.otchestvo = otchestvo;
+    public void setmiddlename(String middlename) {
+        this.middlename = middlename;
     }
 
     public String getAdres() {
@@ -112,20 +112,20 @@ public class user implements Serializable{
         this.nomercard = nomercard;
     }
 
-    public String getSrok1() {
-        return srok1;
+    public String getvalidity1() {
+        return validity1;
     }
 
-    public void setSrok1(String srok1) {
-        this.srok1 = srok1;
+    public void setvalidity1(String validity1) {
+        this.validity1 = validity1;
     }
 
-    public String getSrok2() {
-        return srok2;
+    public String getvalidity2() {
+        return validity2;
     }
 
-    public void setSrok2(String srok2) {
-        this.srok2 = srok2;
+    public void setvalidity2(String validity2) {
+        this.validity2 = validity2;
     }
 
     public String getCvv2() {

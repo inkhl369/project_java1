@@ -4,3 +4,4 @@
   11    кроссовер    Lexus RX 300 AWD F SPORT    3240  
   14    хетчбэк    Honda Insight    29.99  
   15    хетчбэк    Smart Fortwo    139.99    16    хетчбэк    Opel Signum    199.99  
+  24    кроссовер    Mazda CX-5 Supreme    1540  

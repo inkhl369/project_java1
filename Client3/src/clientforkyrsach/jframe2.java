@@ -44,13 +44,13 @@ ArrayList<computertechnika> spisok = new ArrayList<>();
         user1.setID((String)cois.readObject());
         user1.setLogin((String)cois.readObject());
         user1.setPassword((String)cois.readObject());
-        user1.setFamilia((String)cois.readObject());
+        user1.setlastname((String)cois.readObject());
         user1.setName((String)cois.readObject());
-        user1.setOtchestvo((String)cois.readObject());
+        user1.setmiddlename((String)cois.readObject());
         user1.setAdres((String)cois.readObject());
         user1.setNomercard((String)cois.readObject());
-        user1.setSrok1((String)cois.readObject());
-        user1.setSrok2((String)cois.readObject());
+        user1.setvalidity1((String)cois.readObject());
+        user1.setvalidity2((String)cois.readObject());
         user1.setCvv2((String)cois.readObject());
         
         jLabel10.setVisible(false);
@@ -85,12 +85,12 @@ ArrayList<computertechnika> spisok = new ArrayList<>();
         month = new javax.swing.JComboBox();
         year = new javax.swing.JComboBox();
         name = new javax.swing.JTextField();
-        otchestvo = new javax.swing.JTextField();
+        middlename = new javax.swing.JTextField();
         adres = new javax.swing.JTextField();
         cardnumber = new javax.swing.JTextField();
         confirm = new javax.swing.JButton();
         cvv2 = new javax.swing.JFormattedTextField();
-        familia = new javax.swing.JTextField();
+        lastname = new javax.swing.JTextField();
         thirdframe = new javax.swing.JFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         klienttable = new javax.swing.JTable();
@@ -155,9 +155,9 @@ ArrayList<computertechnika> spisok = new ArrayList<>();
             }
         });
 
-        otchestvo.addMouseListener(new java.awt.event.MouseAdapter() {
+        middlename.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                otchestvoMouseClicked(evt);
+                middlenameMouseClicked(evt);
             }
         });
 
@@ -170,9 +170,9 @@ ArrayList<computertechnika> spisok = new ArrayList<>();
 
         cvv2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0"))));
 
-        familia.addMouseListener(new java.awt.event.MouseAdapter() {
+        lastname.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                familiaMouseClicked(evt);
+                lastnameMouseClicked(evt);
             }
         });
 
@@ -202,9 +202,9 @@ ArrayList<computertechnika> spisok = new ArrayList<>();
                                 .addGap(40, 40, 40)
                                 .addGroup(secondframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(name)
-                                    .addComponent(otchestvo)
+                                    .addComponent(middlename)
                                     .addComponent(adres, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                                    .addComponent(familia)))
+                                    .addComponent(lastname)))
                             .addComponent(jLabel7)))
                     .addGroup(secondframeLayout.createSequentialGroup()
                         .addGap(137, 137, 137)
@@ -220,14 +220,14 @@ ArrayList<computertechnika> spisok = new ArrayList<>();
                 .addGap(14, 14, 14)
                 .addGroup(secondframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(familia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(secondframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(secondframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(otchestvo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(middlename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(secondframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -593,14 +593,14 @@ ArrayList<computertechnika> spisok = new ArrayList<>();
     
         try {
         coos.writeObject("обновитьданные");
-        coos.writeObject(user1.getFamilia());
+        coos.writeObject(user1.getlastname());
         coos.writeObject(user1.getName());
-        coos.writeObject(user1.getOtchestvo());
+        coos.writeObject(user1.getmiddlename());
         coos.writeObject(user1.getAdres());
         coos.writeObject(user1.getNomercard());
         coos.writeObject(user1.getCvv2());
-        coos.writeObject(user1.getSrok1());
-        coos.writeObject(user1.getSrok2());
+        coos.writeObject(user1.getvalidity1());
+        coos.writeObject(user1.getvalidity2());
     } catch (IOException ex) {
         Logger.getLogger(jframe1.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -616,14 +616,14 @@ ArrayList<computertechnika> spisok = new ArrayList<>();
         secondframe.setVisible(true);
        secondframe.setBounds(point.x+60, point.y+90, 400, 400);
        jLabel10.setVisible(false);
-       familia.setText(user1.getFamilia());
+       lastname.setText(user1.getlastname());
        name.setText(user1.getName());
-       otchestvo.setText(user1.getOtchestvo());
+       middlename.setText(user1.getmiddlename());
        adres.setText(user1.getAdres());
        cardnumber.setText(user1.getNomercard());
        cvv2.setText(user1.getCvv2());
-       month.setSelectedItem(user1.getSrok1());
-       year.setSelectedItem(user1.getSrok2());
+       month.setSelectedItem(user1.getvalidity1());
+       year.setSelectedItem(user1.getvalidity2());
     }//GEN-LAST:event_menubutton1ActionPerformed
 
     
@@ -632,14 +632,14 @@ ArrayList<computertechnika> spisok = new ArrayList<>();
       
         try {
         coos.writeObject("обновитьданные");
-        coos.writeObject(user1.getFamilia());
+        coos.writeObject(user1.getlastname());
         coos.writeObject(user1.getName());
-        coos.writeObject(user1.getOtchestvo());
+        coos.writeObject(user1.getmiddlename());
         coos.writeObject(user1.getAdres());
         coos.writeObject(user1.getNomercard());
         coos.writeObject(user1.getCvv2());
-        coos.writeObject(user1.getSrok1());
-        coos.writeObject(user1.getSrok2());
+        coos.writeObject(user1.getvalidity1());
+        coos.writeObject(user1.getvalidity2());
         coos.writeObject("quit");
     } catch (IOException ex) {
         Logger.getLogger(jframe1.class.getName()).log(Level.SEVERE, null, ex);
@@ -753,19 +753,19 @@ ArrayList<computertechnika> spisok = new ArrayList<>();
 }
     
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
-       if(isString(familia.getText())) 
-        user1.setFamilia(familia.getText());
-       else familia.setText("Ошибка");
+       if(isString(lastname.getText()))
+        user1.setlastname(lastname.getText());
+       else lastname.setText("Ошибка");
        if(isString(name.getText())) 
         user1.setName(name.getText());
        else name.setText("Ошибка");
-       if(isString(otchestvo.getText())) 
-        user1.setOtchestvo(otchestvo.getText());
+       if(isString(middlename.getText()))
+        user1.setmiddlename(middlename.getText());
        else name.setText("Ошибка");
         user1.setAdres(adres.getText());
         user1.setNomercard(cardnumber.getText());
-        user1.setSrok1((String)month.getSelectedItem());
-        user1.setSrok2((String)year.getSelectedItem());
+        user1.setvalidity1((String)month.getSelectedItem());
+        user1.setvalidity2((String)year.getSelectedItem());
         user1.setCvv2(cvv2.getText());
         
     }//GEN-LAST:event_confirmActionPerformed
@@ -796,7 +796,7 @@ ArrayList<computertechnika> spisok = new ArrayList<>();
     }//GEN-LAST:event_DeleteButtonActionPerformed
 
     private void BuyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyButtonActionPerformed
-        if(user1.getFamilia().length()>3 && user1.getName().length()>3 && user1.getOtchestvo().length()>3 && user1.getAdres().length()>10 && user1.getNomercard().length()>=16 &&( user1.getCvv2().length()>2 && user1.getCvv2().length()<5 ) )
+        if(user1.getlastname().length()>3 && user1.getName().length()>3 && user1.getmiddlename().length()>3 && user1.getAdres().length()>10 && user1.getNomercard().length()>=16 &&( user1.getCvv2().length()>2 && user1.getCvv2().length()<5 ) )
         {
             if(klienttable.getRowCount()>0){
             try
@@ -993,20 +993,20 @@ diagrammframe.getContentPane().repaint();
         DeleteButton.setEnabled(false);
     }//GEN-LAST:event_thirdframeWindowClosing
 
-    private void familiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_familiaMouseClicked
-        if(familia.getText().equals("Ошибка"))
-            familia.setText("");
-    }//GEN-LAST:event_familiaMouseClicked
+    private void lastnameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lastnameMouseClicked
+        if(lastname.getText().equals("Ошибка"))
+            lastname.setText("");
+    }//GEN-LAST:event_lastnameMouseClicked
 
     private void nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameMouseClicked
         if(name.getText().equals("Ошибка"))
             name.setText("");
     }//GEN-LAST:event_nameMouseClicked
 
-    private void otchestvoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_otchestvoMouseClicked
-        if(otchestvo.getText().equals("Ошибка"))
-            otchestvo.setText("");
-    }//GEN-LAST:event_otchestvoMouseClicked
+    private void middlenameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_middlenameMouseClicked
+        if(middlename.getText().equals("Ошибка"))
+            middlename.setText("");
+    }//GEN-LAST:event_middlenameMouseClicked
 
  
 
@@ -1022,7 +1022,7 @@ diagrammframe.getContentPane().repaint();
     private javax.swing.JFormattedTextField cvv2;
     private javax.swing.JMenuItem diagramma;
     private javax.swing.JFrame diagrammframe;
-    private javax.swing.JTextField familia;
+    private javax.swing.JTextField lastname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1055,7 +1055,7 @@ diagrammframe.getContentPane().repaint();
     private javax.swing.JMenuItem menubutton3;
     private javax.swing.JComboBox month;
     private javax.swing.JTextField name;
-    private javax.swing.JTextField otchestvo;
+    private javax.swing.JTextField middlename;
     private javax.swing.JLabel otherlabel;
     private javax.swing.JButton poisk;
     private javax.swing.JCheckBox qaz;

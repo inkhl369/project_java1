@@ -36,7 +36,7 @@
                                       <Component id="name" max="32767" attributes="0"/>
                                       <Component id="otchestvo" alignment="0" max="32767" attributes="0"/>
                                       <Component id="adres" alignment="0" pref="152" max="32767" attributes="0"/>
-                                      <Component id="familia" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lastname" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -61,7 +61,7 @@
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="familia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lastname" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -206,9 +206,9 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="familia">
+        <Component class="javax.swing.JTextField" name="lastname">
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="familiaMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lastnameMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
