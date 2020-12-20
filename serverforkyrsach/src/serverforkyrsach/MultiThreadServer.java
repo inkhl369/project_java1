@@ -49,7 +49,7 @@ public class MultiThreadServer {
         catch (Exception e) {}
         try (ServerSocket server = new ServerSocket(socket);
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in,"CP866"))) {
-            System.out.println("Сервер подключился...");
+            System.out.println("Server connected...");
             System.out.println("Port server "+ socket);
             System.out.println("Server is ready to work");//Сервер готов для работы
             while (!server.isClosed()) {               

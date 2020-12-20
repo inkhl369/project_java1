@@ -784,7 +784,7 @@ if (clientMessageRecieved.equals("обновитьданные"))
      { String b ;
          String data;
      data=(String)sois.readObject(); 
-   
+
      b=" UPDATE users SET lastname = '" +data+ "' WHERE KodUsers ="+ID ;
       stmt.executeUpdate(b);
        data=(String)sois.readObject();   

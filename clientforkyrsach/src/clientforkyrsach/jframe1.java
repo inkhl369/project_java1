@@ -131,7 +131,7 @@ ObjectInputStream  cois;
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 10, 13)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Добро пожаловать в систему учета продаж автомобилей в автосалоне");
+        jLabel1.setText("Добро пожаловать в систему учёта перевозок");
         jLabel1.setAutoscrolls(true);
 
         buttontovxod.setBackground(new java.awt.Color(79, 177, 25));

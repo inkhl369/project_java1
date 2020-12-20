@@ -457,7 +457,7 @@ private void tablica3()
         });
         jMenu1.add(zapros);
 
-        technikaprod.setText("Проданная техника");
+        technikaprod.setText("Оформленные перевозки");
         technikaprod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 technikaprodActionPerformed(evt);
@@ -465,7 +465,7 @@ private void tablica3()
         });
         jMenu1.add(technikaprod);
 
-        diagr.setText("Диаграмма популярности автомобилей");
+        diagr.setText("Диаграмма популярности перевозок");
         diagr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 diagrActionPerformed(evt);
@@ -515,9 +515,9 @@ private void tablica3()
         );
 
         setBounds(0, 0, 516, 539);
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {
         try {
         coos.writeObject("quit");
     } catch (IOException ex) {
@@ -530,9 +530,9 @@ private void tablica3()
     }
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
                                     
-    }//GEN-LAST:event_formWindowClosing
+    }
 
-    private void maintableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maintableMouseClicked
+    private void maintableMouseClicked(java.awt.event.MouseEvent evt) {
        if(maintable.getSelectedRowCount() > 0)
         {
             delete.setEnabled(true);
@@ -543,9 +543,9 @@ private void tablica3()
             delete.setEnabled(false);
             redaction.setEnabled(false);
         }
-    }//GEN-LAST:event_maintableMouseClicked
+    }
 
-    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {
          try
         {
             int ID = (int)maintable.getValueAt(maintable.getSelectedRow(), 0);
@@ -561,9 +561,9 @@ private void tablica3()
         delete.setEnabled(false);
         redaction.setEnabled(false);
         tablica3();
-    }//GEN-LAST:event_deleteActionPerformed
+    }
 
-    private void redactionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redactionActionPerformed
+    private void redactionActionPerformed(java.awt.event.ActionEvent evt) {
 save.setBackground(Color.white);
         Point point;
             point= getLocation();
@@ -855,7 +855,7 @@ public static boolean isDouble(String x) throws NumberFormatException
         
     }
 
-    private void technikaprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_technikaprodActionPerformed
+    private void technikaprodActionPerformed(java.awt.event.ActionEvent evt) {
        Point point;
             point= getLocation();
         prodan.setVisible(true);
@@ -871,7 +871,7 @@ public static boolean isDouble(String x) throws NumberFormatException
        
     }
 
-    private void schetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schetActionPerformed
+    private void schetActionPerformed(java.awt.event.ActionEvent evt) {
         try{
                 coos.writeObject("Полученнаяприбыль");
                 String q=(String) cois.readObject(); 
@@ -881,7 +881,7 @@ public static boolean isDouble(String x) throws NumberFormatException
     }
     }
 
-    private void diagrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagrActionPerformed
+    private void diagrActionPerformed(java.awt.event.ActionEvent evt) {
         diagramma.getContentPane().removeAll();
         diagramma.getContentPane().repaint();
         Point point;
@@ -928,6 +928,7 @@ public static boolean isDouble(String x) throws NumberFormatException
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;

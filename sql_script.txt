@@ -7,33 +7,33 @@ CREATE TABLE users
     roles VARCHAR(40) NOT NULL,
     lastname VARCHAR(40),
     firstname VARCHAR(40),
-    middlename VARCHAR(40),
-    adds VARCHAR(60),
+    otchestvo VARCHAR(40),
+    adres VARCHAR(60),
     Primary key (KodUsers)
 );
 
-INSERT INTO users (Login,Password,roles,lastname,firstname,middlename,adds)
+INSERT INTO users (Login,Password,roles,lastname,firstname,otchestvo,adres)
 VALUES ('1234567890', '1234567890','клиент','Вяль','Дарья','Юрьевна','Минск'),
        ('shevarov','shevarov','клиент','Ражкова','Елизавета','Юрьевна','Фаниполь'),
        ('12345', '12345','клиент','Соколов','Артём','Андреевич','Брест'),
        ('admin1','admin1','админ','Миронова','Мария','','');
-create table dataCard
+create table acarddata
 (
     KodCard int primary key AUTO_INCREMENT,
     KodUsers int ,
-    numberCard VARCHAR(40),
-    validity11 int,
-    validity12 int,
+    nomerkard VARCHAR(40),
+    srok1 int,
+    srok2 int,
     cvv2 int,
     FOREIGN KEY (KodUsers) REFERENCES users(KodUsers) on update cascade on delete cascade
 );
-insert into dataCard(KodUsers,numberCard,validity11,validity12,cvv2,account_amount) values
-(1,'1234567890',2,2020,123,2),
-(2,'1234567890',3,2021,234,2),
-(3,'1234567890',4,2022,345,2),
-(4,'1234567890',5,2023,456,2);
+insert into acarddata(KodUsers,nomerkard,srok1,srok2,cvv2) values
+(1,'1234567890',2,2020,123),
+(2,'1234567890',3,2021,234),
+(3,'1234567890',4,2022,345),
+(4,'1234567890',5,2023,456);
 
-create table list
+create table spisok
 (
     KodSpisok int primary key AUTO_INCREMENT,
     Name1 VARCHAR(40) NOT NULL,
@@ -43,7 +43,7 @@ create table list
 
 );
 
-insert into list(Name1,Model,Price,Description) values
+insert into spisok(Name1,Model,Price,Description) values
 ('кроссовер','Lexus NX 300 AWD Progressive',30000,'1998, 200, Светло-серый металлик '),
 ('кроссовер','Kia Sportage Premium',1200,'1999, 200, Светло-серый металлик'),
 ('кроссовер','Mazda CX-5 Supreme',1540,'1999, 200, Светло-серый металлик'),
@@ -70,77 +70,77 @@ insert into list(Name1,Model,Price,Description) values
 ('хетчбэк','Toyota RAV4',199.99,'1999, 200, Светло-серый металлик'),
 ('хетчбэк','Ford Focus',149.99,'1999, 200, Светло-серый металлик');
 
-create table listhatchback
+create table spisokperipherii
 (
     KodPer int primary key AUTO_INCREMENT,
     KodSpisok int ,
-    presenceFifthDoor VARCHAR(40),
-    FOREIGN KEY (KodSpisok) REFERENCES list(KodSpisok) on update cascade on delete cascade
+    Types VARCHAR(40),
+    FOREIGN KEY (KodSpisok) REFERENCES spisok(KodSpisok) on update cascade on delete cascade
 );
 
 
-create table listcrossover
+create table spisokpk
 (
     KodPK int primary key AUTO_INCREMENT,
     KodSpisok int,
-    volumeTrunk double,
-    FOREIGN KEY (KodSpisok) REFERENCES list(KodSpisok) on update cascade on delete cascade
+    Computpower double,
+    FOREIGN KEY (KodSpisok) REFERENCES spisok(KodSpisok) on update cascade on delete cascade
 );
-create table listsedan
+create table spisoklaptod
 (
     KodLaptod int primary key AUTO_INCREMENT,
     KodSpisok int ,
-    TypeOfDrive VARCHAR(40),
-    FOREIGN KEY (KodSpisok) REFERENCES list(KodSpisok) on update cascade on delete cascade
+    TachPad VARCHAR(40),
+    FOREIGN KEY (KodSpisok) REFERENCES spisok(KodSpisok) on update cascade on delete cascade
 );
-create table listsuv
+create table spisokmobilephone
 (
     KodPhone int primary key AUTO_INCREMENT,
     KodSpisok int ,
-    TypeSuspension VARCHAR(40),
-    FOREIGN KEY (KodSpisok) REFERENCES list(KodSpisok) on update cascade on delete cascade
+    Typecommunicate VARCHAR(40),
+    FOREIGN KEY (KodSpisok) REFERENCES spisok(KodSpisok) on update cascade on delete cascade
 );
 
-insert into listhatchback(KodSpisok,presenceFifthDoor) values
-(18,'Есть'),
-(19,'Нет'),
-(20,'Есть'),
-(21,'Нет'),
-(22,'Есть'),
-(23,'Есть'),
-(24,'Нет'),
-(25,'Нет');
+insert into spisokperipherii(KodSpisok,Types) values
+(18,'МКПП'),
+(19,'АКПП'),
+(20,'АКПП'),
+(21,'МКПП'),
+(22,'АКПП'),
+(23,'МКПП'),
+(24,'АКПП'),
+(25,'МКПП');
 
-insert into listcrossover(KodSpisok,volumeTrunk) values
-(1,350),
-(2,370),
-(3,400),
-(4,360),
-(5,340),
-(6,320),
-(7,370),
-(8,350);
+insert into spisokpk(KodSpisok,Computpower) values
+(1,0.8),
+(2,0.3),
+(3,0.4),
+(4,0.9),
+(5,1),
+(6,0.3),
+(7,0.2),
+(8,0.1);
 
-insert into listsuv(KodSpisok,TypeSuspension) values
-(9,'Зависимая'),
-(10,'Независимая'),
-(11,'Независимая'),
-(12,'Зависимая'),
-(13,'Независимая'),
-(14,'Зависимая');
+insert into spisokmobilephone(KodSpisok,Typecommunicate) values
+(9,'3g'),
+(10,'4g'),
+(11,'4g'),
+(12,'4g'),
+(13,'4g'),
+(14,'5g');
 
-insert into listsedan(KodSpisok,TypeOfDrive) values
-(15,'Полноприводный'),
-(16,'Полноприводный'),
-(17,'Переднеприводный');
+insert into spisoklaptod(KodSpisok,TachPad) values
+(15,'Есть'),
+(16,'Есть'),
+(17,'Есть');
 
-create table pannier
+create table apannier
 (
     KodPannier int primary key AUTO_INCREMENT,
     KodUsers int NOT NULL,
     KodSpisok int NOT NULL,
     FOREIGN KEY (KodUsers) REFERENCES users(KodUsers) on update cascade on delete cascade,
-    FOREIGN KEY (KodSpisok) REFERENCES list(KodSpisok) on update cascade on delete cascade
+    FOREIGN KEY (KodSpisok) REFERENCES spisok(KodSpisok) on update cascade on delete cascade
 );
 
 create table orders
@@ -151,6 +151,28 @@ create table orders
     Data1 date,
     Descriptionoforder VARCHAR(60),
     FOREIGN KEY (KodUsers) REFERENCES users(KodUsers) on update cascade on delete cascade,
-    FOREIGN KEY (KodSpisok) REFERENCES list(KodSpisok) on update cascade on delete cascade
+    FOREIGN KEY (KodSpisok) REFERENCES spisok(KodSpisok) on update cascade on delete cascade
 );
+
+
+rename table spisokpk to listcrossover;
+rename table spisokperipherii to listhatchback;
+rename table spisoklaptod to listsedan;
+rename table spisokmobilephone to listsuv;
+
+rename table apannier to pannier;
+rename table spisok to list;
+rename table acarddata to dataCard;
+
+ALTER TABLE listhatchback CHANGE Types presenceFifthDoor VARCHAR(40);
+ALTER TABLE listcrossover CHANGE Computpower volumeTrunk double;
+ALTER TABLE listsedan CHANGE TachPad TypeOfDrive VARCHAR(40);
+ALTER TABLE listsuv CHANGE Typecommunicate TypeSuspension VARCHAR(40);
+ALTER TABLE users CHANGE otchestvo middlename VARCHAR(40);
+ALTER TABLE users CHANGE adres adds VARCHAR(60);
+ALTER TABLE acarddata CHANGE nomerkard numberCard VARCHAR(40);
+ALTER TABLE acarddata CHANGE srok1 validity1 int;
+ALTER TABLE acarddata CHANGE srok2 validity2 int;
+
+
 

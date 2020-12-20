@@ -37,7 +37,7 @@ ArrayList<cars> list = new ArrayList<>();
         user1.setvalidity1((String)cois.readObject());
         user1.setvalidity2((String)cois.readObject());
         user1.setCvv2((String)cois.readObject());
-        
+
         jLabel10.setVisible(false);
         tablica1();
         tablica3();
@@ -126,7 +126,7 @@ ArrayList<cars> list = new ArrayList<>();
 
         jLabel6.setText("Срок действия");
 
-        jLabel7.setText("CVV2/CVC2");
+        jLabel7.setText("Сумма на счету");
 
         month.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
@@ -281,7 +281,7 @@ ArrayList<cars> list = new ArrayList<>();
         jLabel10.setLabelFor(BuyButton);
         jLabel10.setText("Введите корректные личные данные");
 
-        button.setText("Подсчитать стоимость автомобилей");
+        button.setText("Подсчитать стоимость перевозок");
         button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonActionPerformed(evt);
@@ -504,7 +504,7 @@ ArrayList<cars> list = new ArrayList<>();
         });
         jMenu1.add(menubutton2);
 
-        diagramma.setText("Диаграмма автомобилей в корзине");
+        diagramma.setText("Диаграмма перевозок в корзине");
         diagramma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 diagrammaActionPerformed(evt);
@@ -633,7 +633,7 @@ ArrayList<cars> list = new ArrayList<>();
         Logger.getLogger(jframe2.class.getName()).log(Level.SEVERE, null, ex);
     }
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-    }//GEN-LAST:event_formWindowClosing
+    }
 
     private void menubutton2ActionPerformed(java.awt.event.ActionEvent evt) {
     
@@ -750,7 +750,7 @@ ArrayList<cars> list = new ArrayList<>();
         user1.setvalidity1((String)month.getSelectedItem());
         user1.setvalidity2((String)year.getSelectedItem());
         user1.setCvv2(cvv2.getText());
-        
+
     }
 
     private void thirdframeMouseClicked(java.awt.event.MouseEvent evt) {

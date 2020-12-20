@@ -1,2 +1,5 @@
   49    кроссовер    Opel Mokka     1240  
   50    кроссовер    Nissan Qashqai    1340    51    внедорожник    Lexus LX    1020.2  
+  53    кроссовер    Jaguar E-pace S    1440    54    внедорожник    Honda HR-V    1820.6    55    хетчбэк    Opel Signum    199.99    56    кроссовер    Geely Coolray Flagshipd    3170  
+  59    кроссовер    Nissan Qashqai    1340  
+  60    хетчбэк    Smart Fortwo    139.99    61    кроссовер    Lexus RX 300 AWD F SPORT    3240    62    внедорожник    Mitsubishi Pajero    3000.6  
